@@ -25,14 +25,7 @@ public class InsertActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
-
-        MaSP = findViewById(R.id.txtID);
-        TenSP = findViewById(R.id.txtNameProduct);
-        giaSP = findViewById(R.id.txtPrice);
-        thuonghieuSP = findViewById(R.id.thuonghieu);
-        loaiSPGroup = findViewById(R.id.radio_group);
-        btnInsert = findViewById(R.id.btnInsert);
-
+        addViews();
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.array_thuonghieu, android.R.layout.simple_spinner_item);
@@ -40,7 +33,19 @@ public class InsertActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         thuonghieuSP.setAdapter(adapter);
+        addEvents();
+    }
 
+    private void addViews() {
+        MaSP = findViewById(R.id.txtID);
+        TenSP = findViewById(R.id.txtNameProduct);
+        giaSP = findViewById(R.id.txtPrice);
+        thuonghieuSP = findViewById(R.id.thuonghieu);
+        loaiSPGroup = findViewById(R.id.radio_group);
+        btnInsert = findViewById(R.id.btnInsert);
+    }
+
+    private void addEvents() {
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,4 +74,5 @@ public class InsertActivity extends AppCompatActivity {
             }
         });
     }
+
 }
